@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: gunicorn updater.wsgi -b 0.0.0.0:8080 --timeout 3600
+    volumes:
+      - .:/usr/src/app/
+    ports:
+      - "8080:8080"
